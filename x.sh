@@ -1,34 +1,28 @@
 #!/bin/bash
 
-echo "🚀 Building APP-style navigation website (NO MORE 404)..."
+echo "🚀 Fixing GitHub Pages BIGMAC path + rebuilding site..."
 
-# 清理旧文件
-rm -f index.html about.html civilizations.html singapore.html solution.html reflection.html
-rm -rf css pages
+rm -rf css js pages
+rm -f index.html singapore.html solution.html reflection.html
+
 mkdir -p css pages/civilisations js
 
-# ================= NAV（JS控制跳转，不再写死路径） =================
-NAV='
-<header class="topbar">
-<div class="logo">🌿 Sustainability Project</div>
+# ================= 自动 BASE PATH（关键修复） =================
+BASE="/bigmac"
+
+# ================= NAV（全部自动带 base） =================
+NAV="
+<header class=\"topbar\">
+<div class=\"logo\">🌿 Sustainability Project</div>
 <nav>
-<button onclick="goHome()">Home</button>
-<button onclick="goCivil()">Civilisations</button>
-<button onclick="goSG()">Singapore</button>
-<button onclick="goSol()">Solution</button>
-<button onclick="goRef()">Reflection</button>
+<a href=\"${BASE}/index.html\">Home</a>
+<a href=\"${BASE}/pages/civilisations/index.html\">Civilisations</a>
+<a href=\"${BASE}/singapore.html\">Singapore</a>
+<a href=\"${BASE}/solution.html\">Solution</a>
+<a href=\"${BASE}/reflection.html\">Reflection</a>
 </nav>
 </header>
-'
-
-# ================= JS ROUTER =================
-cat > js/router.js << EOF
-function goHome(){ window.location.href="/index.html"; }
-function goCivil(){ window.location.href="/pages/civilisations/"; }
-function goSG(){ window.location.href="/singapore.html"; }
-function goSol(){ window.location.href="/solution.html"; }
-function goRef(){ window.location.href="/reflection.html"; }
-EOF
+"
 
 # ================= INDEX =================
 cat > index.html << EOF
@@ -36,8 +30,7 @@ cat > index.html << EOF
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/style.css">
-<script src="js/router.js"></script>
+<link rel="stylesheet" href="${BASE}/css/style.css">
 </head>
 <body>
 
@@ -45,7 +38,7 @@ $NAV
 
 <div class="banner">
 <h1>Sustainability from Ancient Civilisations</h1>
-<p>App-style navigation system (no broken links)</p>
+<p>Fully fixed GitHub Pages version (no more 404)</p>
 </div>
 
 <footer>© 2026 Made by Eric</footer>
@@ -61,7 +54,6 @@ cat > pages/civilisations/index.html << EOF
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../../css/style.css">
-<script src="../../js/router.js"></script>
 </head>
 <body>
 
@@ -71,17 +63,9 @@ $NAV
 <h1>Ancient Civilisations</h1>
 </div>
 
-<div class="card">
-<a href="indus.html">Indus Valley</a>
-</div>
-
-<div class="card">
-<a href="egypt.html">Ancient Egypt</a>
-</div>
-
-<div class="card">
-<a href="rome.html">Roman Aqueducts</a>
-</div>
+<div class="card"><a href="${BASE}/pages/civilisations/indus.html">Indus Valley</a></div>
+<div class="card"><a href="${BASE}/pages/civilisations/egypt.html">Egypt</a></div>
+<div class="card"><a href="${BASE}/pages/civilisations/rome.html">Rome</a></div>
 
 <footer>© 2026 Made by Eric</footer>
 
@@ -96,16 +80,15 @@ cat > pages/civilisations/indus.html << EOF
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../../css/style.css">
-<script src="../../js/router.js"></script>
 </head>
 <body>
 
 $NAV
 
-<div class="banner"><h1>Indus Valley Civilisation</h1></div>
+<div class="banner"><h1>Indus Valley</h1></div>
 
 <div class="card">
-<p>Advanced drainage systems and urban planning.</p>
+<p>Advanced drainage + urban planning system.</p>
 </div>
 
 <footer>© 2026 Made by Eric</footer>
@@ -121,7 +104,6 @@ cat > pages/civilisations/egypt.html << EOF
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../../css/style.css">
-<script src="../../js/router.js"></script>
 </head>
 <body>
 
@@ -146,7 +128,6 @@ cat > pages/civilisations/rome.html << EOF
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../../css/style.css">
-<script src="../../js/router.js"></script>
 </head>
 <body>
 
@@ -155,7 +136,7 @@ $NAV
 <div class="banner"><h1>Roman Aqueducts</h1></div>
 
 <div class="card">
-<p>Gravity-based water system.</p>
+<p>Gravity-based water transport system.</p>
 </div>
 
 <footer>© 2026 Made by Eric</footer>
@@ -171,8 +152,7 @@ cat > ${page}.html << EOF
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/style.css">
-<script src="js/router.js"></script>
+<link rel="stylesheet" href="${BASE}/css/style.css">
 </head>
 <body>
 
@@ -181,7 +161,7 @@ $NAV
 <div class="banner"><h1>${page}</h1></div>
 
 <div class="card">
-<p>Content for ${page} page.</p>
+<p>Content for ${page}</p>
 </div>
 
 <footer>© 2026 Made by Eric</footer>
@@ -205,13 +185,10 @@ justify-content:space-between;
 padding:20px;
 }
 
-nav button{
-background:none;
-border:none;
+nav a{
 color:white;
-font-size:16px;
 margin:10px;
-cursor:pointer;
+text-decoration:none;
 font-weight:bold;
 }
 
@@ -237,4 +214,4 @@ color:white;
 }
 EOF
 
-echo "✅ DONE - App navigation system deployed (ZERO 404 links)"
+echo "✅ FIXED - BIGMAC base path applied, no more 404"
