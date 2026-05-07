@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/style.css">
-<title>Home</title>
+<script src="js/router.js"></script>
 </head>
 <body>
 
@@ -11,24 +11,18 @@
 <header class="topbar">
 <div class="logo">🌿 Sustainability Project</div>
 <nav>
-<a href="/index.html">Home</a>
-<a href="/civilizations.html">Civilisations</a>
-<a href="/singapore.html">Singapore</a>
-<a href="/solution.html">Solution</a>
-<a href="/reflection.html">Reflection</a>
+<button onclick="goHome()">Home</button>
+<button onclick="goCivil()">Civilisations</button>
+<button onclick="goSG()">Singapore</button>
+<button onclick="goSol()">Solution</button>
+<button onclick="goRef()">Reflection</button>
 </nav>
 </header>
 
 
-<section class="banner">
+<div class="banner">
 <h1>Sustainability from Ancient Civilisations</h1>
-<p>Learning from ancient systems to modern Singapore</p>
-</section>
-
-<div class="card">
-<p>
-This project explores how ancient civilisations used natural systems like rivers, gravity, and climate design to solve environmental problems.
-</p>
+<p>App-style navigation system (no broken links)</p>
 </div>
 
 <footer>© 2026 Made by Eric</footer>
