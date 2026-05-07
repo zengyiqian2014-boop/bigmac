@@ -1,14 +1,12 @@
 #!/bin/bash
 
-echo "Cleaning old files..."
+echo "Cleaning old site and rebuilding stable Pages version..."
 
-# ❌ 清理旧网站文件（根目录）
+# 清理旧文件（根目录）
 rm -f index.html about.html civilizations.html singapore.html solution.html reflection.html
 rm -rf css js assets website
 
 mkdir -p css
-
-echo "Generating new GitHub Pages site..."
 
 # ================= NAV =================
 NAV='
@@ -33,20 +31,25 @@ cat > index.html << EOF
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sustainability Project</title>
+<title>Home</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 $NAV
 
-<section class="hero">
+<section class="banner">
 <h1>Sustainability from Ancient Civilisations</h1>
-<h2>Applying Ancient Ideas to Singapore</h2>
-<p>Exploring how ancient solutions still matter today.</p>
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Singapore_skyline_2020.jpg">
+<p>Applying Ancient Ideas to Modern Singapore</p>
 </section>
+
+<div class="card">
+<p>Explore how ancient civilisations solved environmental problems.</p>
+
+<a href="https://upload.wikimedia.org/wikipedia/commons/1/1c/Singapore_skyline_2020.jpg" target="_blank">
+Click to view image: Singapore Skyline
+</a>
+</div>
 
 <footer>© 2026 Made by Eric, All rights reserved</footer>
 
@@ -66,11 +69,13 @@ cat > about.html << EOF
 
 $NAV
 
-<h2>About the Project</h2>
+<section class="banner">
+<h1>About the Project</h1>
+<p>What we are learning</p>
+</section>
 
 <div class="card">
-<p>Primary 6 Social Studies group project.</p>
-<p>We studied sustainability ideas from ancient civilisations.</p>
+<p>Primary 6 Social Studies group project on sustainability.</p>
 </div>
 
 <footer>© 2026 Made by Eric, All rights reserved</footer>
@@ -91,25 +96,26 @@ cat > civilizations.html << EOF
 
 $NAV
 
-<h2>Ancient Civilisations</h2>
+<section class="banner">
+<h1>Ancient Civilisations</h1>
+<p>Solutions from the past</p>
+</section>
 
 <div class="card">
 <h3>Indus Valley</h3>
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Mohenjo-daro_Sindh.jpeg">
-<p>Natural ventilation cooling system.</p>
+<p>Natural ventilation in cities</p>
+<a href="https://upload.wikimedia.org/wikipedia/commons/4/4c/Mohenjo-daro_Sindh.jpeg" target="_blank">View Image</a>
 </div>
 
 <div class="card">
 <h3>Ancient Egypt</h3>
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Nile_River_and_farms.jpg">
-<p>Nile irrigation for agriculture.</p>
+<p>Nile irrigation system</p>
+<a href="https://upload.wikimedia.org/wikipedia/commons/e/e3/Nile_River_and_farms.jpg" target="_blank">View Image</a>
 </div>
 
 <div class="card">
-<h3>Roman Aqueducts</h3>
-<iframe width="100%" height="250"
-src="https://www.youtube.com/embed/v1EdMt7Hs7E"
-allowfullscreen></iframe>
+<h3>Roman Aqueducts Video</h3>
+<a href="https://www.youtube.com/watch?v=v1EdMt7Hs7E" target="_blank">Watch Video</a>
 </div>
 
 <footer>© 2026 Made by Eric, All rights reserved</footer>
@@ -130,12 +136,19 @@ cat > singapore.html << EOF
 
 $NAV
 
-<h2>Singapore Challenges</h2>
+<section class="banner">
+<h1>Singapore Challenges</h1>
+<p>Modern environmental issues</p>
+</section>
 
 <div class="card">
 <p>Urban heat island effect</p>
-<p>Sea level rise</p>
-<p>Water management issues</p>
+<a href="https://upload.wikimedia.org/wikipedia/commons/1/1c/Singapore_skyline_2020.jpg" target="_blank">View Image</a>
+</div>
+
+<div class="card">
+<p>Sea level rise concern</p>
+<a href="https://upload.wikimedia.org/wikipedia/commons/6/6e/Sea_level_rise_diagram.png" target="_blank">View Diagram</a>
 </div>
 
 <footer>© 2026 Made by Eric, All rights reserved</footer>
@@ -156,10 +169,14 @@ cat > solution.html << EOF
 
 $NAV
 
-<h2>Proposed Solution</h2>
+<section class="banner">
+<h1>Proposed Solution</h1>
+<p>Inspired by ancient systems</p>
+</section>
 
 <div class="card">
-<p>Combine ancient water systems with modern urban planning.</p>
+<p>Use natural water flow and cooling methods from ancient civilisations.</p>
+<a href="https://upload.wikimedia.org/wikipedia/commons/e/e3/Nile_River_and_farms.jpg" target="_blank">Reference Image</a>
 </div>
 
 <footer>© 2026 Made by Eric, All rights reserved</footer>
@@ -180,10 +197,13 @@ cat > reflection.html << EOF
 
 $NAV
 
-<h2>Reflection</h2>
+<section class="banner">
+<h1>Reflection</h1>
+<p>What we learned</p>
+</section>
 
 <div class="card">
-<p>We learned that old ideas can still solve modern problems.</p>
+<p>We learned how ancient ideas still solve modern problems.</p>
 </div>
 
 <footer>© 2026 Made by Eric, All rights reserved</footer>
@@ -211,7 +231,6 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:25px 40px;
-z-index:999;
 }
 
 .topbar ul{
@@ -225,23 +244,19 @@ padding:0;
 .topbar a{
 color:white;
 text-decoration:none;
-font-size:18px;
 font-weight:bold;
 }
 
-/* HERO */
-.hero{
+/* BANNER */
+.banner{
 text-align:center;
-padding:90px 20px;
-background:linear-gradient(135deg,#e8f5e9,#ffffff);
+padding:80px 20px;
+background:linear-gradient(135deg,#0f3d2e,#2e7d32);
+color:white;
 }
 
-.hero h1{
-font-size:44px;
-}
-
-.hero h2{
-font-size:24px;
+.banner h1{
+font-size:42px;
 }
 
 /* CARD */
@@ -251,12 +266,6 @@ margin:20px;
 padding:20px;
 border-radius:12px;
 box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-.card img{
-width:100%;
-border-radius:10px;
-margin-top:10px;
 }
 
 /* FOOTER */
@@ -269,4 +278,4 @@ margin-top:30px;
 }
 EOF
 
-echo "DONE - GitHub Pages ready (root deployed)"
+echo "DONE - Clean link-based GitHub Pages site ready"

@@ -15,7 +15,6 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:25px 40px;
-z-index:999;
 }
 
 .topbar ul{
@@ -29,23 +28,19 @@ padding:0;
 .topbar a{
 color:white;
 text-decoration:none;
-font-size:18px;
 font-weight:bold;
 }
 
-/* HERO */
-.hero{
+/* BANNER */
+.banner{
 text-align:center;
-padding:90px 20px;
-background:linear-gradient(135deg,#e8f5e9,#ffffff);
+padding:80px 20px;
+background:linear-gradient(135deg,#0f3d2e,#2e7d32);
+color:white;
 }
 
-.hero h1{
-font-size:44px;
-}
-
-.hero h2{
-font-size:24px;
+.banner h1{
+font-size:42px;
 }
 
 /* CARD */
@@ -55,12 +50,6 @@ margin:20px;
 padding:20px;
 border-radius:12px;
 box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-.card img{
-width:100%;
-border-radius:10px;
-margin-top:10px;
 }
 
 /* FOOTER */
