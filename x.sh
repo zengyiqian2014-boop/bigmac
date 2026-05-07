@@ -1,22 +1,22 @@
 #!/bin/bash
 
-echo "🚀 Building FULL structured sustainability website (final version)..."
+echo "🚀 Rebuilding FULL stable GitHub Pages site..."
 
-# 清理旧文件
+# 清理旧结构
 rm -f index.html about.html civilizations.html singapore.html solution.html reflection.html
 rm -rf css pages
 mkdir -p css pages/civilisations
 
-# ================= NAV =================
+# ================= NAV（关键修复：全部绝对路径） =================
 NAV='
 <header class="topbar">
 <div class="logo">🌿 Sustainability Project</div>
 <nav>
-<a href="index.html">Home</a>
-<a href="civilizations.html">Civilisations</a>
-<a href="singapore.html">Singapore</a>
-<a href="solution.html">Solution</a>
-<a href="reflection.html">Reflection</a>
+<a href="/index.html">Home</a>
+<a href="/civilizations.html">Civilisations</a>
+<a href="/singapore.html">Singapore</a>
+<a href="/solution.html">Solution</a>
+<a href="/reflection.html">Reflection</a>
 </nav>
 </header>
 '
@@ -36,26 +36,22 @@ $NAV
 
 <section class="banner">
 <h1>Sustainability from Ancient Civilisations</h1>
-<p>Learning from ancient systems to solve modern problems</p>
+<p>Learning from ancient systems to modern Singapore</p>
 </section>
 
 <div class="card">
-<h2>Project Overview</h2>
 <p>
-This project explores how ancient civilisations designed sustainable systems using natural resources such as rivers, gravity, and climate adaptation.
-</p>
-<p>
-We studied real historical evidence and compared it with Singapore’s modern environmental challenges.
+This project explores how ancient civilisations used natural systems like rivers, gravity, and climate design to solve environmental problems.
 </p>
 </div>
 
-<footer>© 2026 Made by Eric, All rights reserved</footer>
+<footer>© 2026 Made by Eric</footer>
 
 </body>
 </html>
 EOF
 
-# ================= CIVILISATIONS MAIN =================
+# ================= CIVILISATIONS =================
 cat > civilizations.html << EOF
 <!DOCTYPE html>
 <html>
@@ -69,12 +65,12 @@ $NAV
 
 <section class="banner">
 <h1>Ancient Civilisations</h1>
-<p>Click each topic to explore details</p>
+<p>Click to explore details</p>
 </section>
 
-<div class="card"><a href="pages/civilisations/indus.html">Indus Valley Civilisation →</a></div>
-<div class="card"><a href="pages/civilisations/egypt.html">Ancient Egypt →</a></div>
-<div class="card"><a href="pages/civilisations/rome.html">Roman Aqueducts →</a></div>
+<div class="card"><a href="/pages/civilisations/indus.html">Indus Valley →</a></div>
+<div class="card"><a href="/pages/civilisations/egypt.html">Ancient Egypt →</a></div>
+<div class="card"><a href="/pages/civilisations/rome.html">Roman Aqueducts →</a></div>
 
 <footer>© 2026 Made by Eric</footer>
 
@@ -94,24 +90,20 @@ cat > pages/civilisations/indus.html << EOF
 
 $NAV
 
-<section class="banner">
-<h1>Indus Valley Civilisation</h1>
-</section>
+<div class="banner"><h1>Indus Valley Civilisation</h1></div>
 
 <div class="card">
 <h3>Problem</h3>
-<p>Hot climate and need for efficient urban living.</p>
+<p>Hot climate and need for city planning.</p>
 
 <h3>Solution</h3>
-<p>Advanced drainage systems, wells, and planned streets for water management.</p>
+<p>Drainage system, wells, structured streets.</p>
 
 <h3>Why it worked</h3>
-<p>It used natural water flow and passive cooling instead of electricity.</p>
+<p>Used natural water flow instead of machines.</p>
 
-<h3>Modern connection</h3>
-<p>Similar to Singapore’s drainage systems and urban planning today.</p>
-
-<p><a href="https://www.britannica.com/topic/Indus-civilization" target="_blank">Source Reference</a></p>
+<h3>Modern link</h3>
+<p>Similar to Singapore drainage systems.</p>
 </div>
 
 <footer>© 2026 Made by Eric</footer>
@@ -132,24 +124,17 @@ cat > pages/civilisations/egypt.html << EOF
 
 $NAV
 
-<section class="banner">
-<h1>Ancient Egypt</h1>
-</section>
+<div class="banner"><h1>Ancient Egypt</h1></div>
 
 <div class="card">
 <h3>Problem</h3>
-<p>Dry environment with limited rainfall.</p>
+<p>Dry desert environment.</p>
 
 <h3>Solution</h3>
-<p>Used Nile River flooding to irrigate farmland.</p>
+<p>Nile River irrigation system.</p>
 
 <h3>Why it worked</h3>
-<p>Natural seasonal flooding supported agriculture cycles.</p>
-
-<h3>Impact</h3>
-<p>Enabled long-term civilisation growth.</p>
-
-<p><a href="https://www.britannica.com/place/ancient-Egypt" target="_blank">Source Reference</a></p>
+<p>Used natural seasonal flooding.</p>
 </div>
 
 <footer>© 2026 Made by Eric</footer>
@@ -170,24 +155,17 @@ cat > pages/civilisations/rome.html << EOF
 
 $NAV
 
-<section class="banner">
-<h1>Roman Aqueducts</h1>
-</section>
+<div class="banner"><h1>Roman Aqueducts</h1></div>
 
 <div class="card">
 <h3>Problem</h3>
-<p>Need to transport water across long distances.</p>
+<p>Need to transport water to cities.</p>
 
 <h3>Solution</h3>
-<p>Gravity-based aqueduct systems that carried water to cities.</p>
+<p>Gravity-based aqueduct systems.</p>
 
 <h3>Why it worked</h3>
-<p>No electricity needed, only natural slope and engineering design.</p>
-
-<h3>Impact</h3>
-<p>Supported large urban populations.</p>
-
-<p><a href="https://www.britannica.com/technology/aqueduct-engineering" target="_blank">Source Reference</a></p>
+<p>No electricity needed.</p>
 </div>
 
 <footer>© 2026 Made by Eric</footer>
@@ -208,19 +186,12 @@ cat > singapore.html << EOF
 
 $NAV
 
-<section class="banner">
-<h1>Singapore Challenges</h1>
-</section>
+<div class="banner"><h1>Singapore Challenges</h1></div>
 
 <div class="card">
-<h3>Urban Heat</h3>
-<p>High density buildings trap heat.</p>
-
-<h3>Sea Level Rise</h3>
-<p>Low-lying land is vulnerable to flooding.</p>
-
-<h3>Water Management</h3>
-<p>Limited natural water resources require recycling systems.</p>
+<p>Urban heat island</p>
+<p>Sea level rise</p>
+<p>Water management issues</p>
 </div>
 
 <footer>© 2026 Made by Eric</footer>
@@ -241,13 +212,11 @@ cat > solution.html << EOF
 
 $NAV
 
-<section class="banner">
-<h1>Proposed Solution</h1>
-</section>
+<div class="banner"><h1>Proposed Solution</h1></div>
 
 <div class="card">
 <p>
-We propose combining ancient passive cooling systems and natural water flow concepts with modern green building design in Singapore.
+Combine ancient passive cooling + modern green buildings for Singapore.
 </p>
 </div>
 
@@ -269,20 +238,15 @@ cat > reflection.html << EOF
 
 $NAV
 
-<section class="banner">
-<h1>Reflection</h1>
-</section>
+<div class="banner"><h1>Reflection</h1></div>
 
 <div class="card">
 <p>
-We learned how ancient civilisations solved problems using natural systems and how these ideas can still be used today.
-</p>
-<p>
-We also improved teamwork, research skills, and presentation skills.
+We learned teamwork, sustainability concepts, and how ancient ideas still apply today.
 </p>
 </div>
 
-<footer>© 2026 Made by Eric, All rights reserved</footer>
+<footer>© 2026 Made by Eric</footer>
 
 </body>
 </html>
@@ -293,7 +257,8 @@ cat > css/style.css << EOF
 body{margin:0;font-family:Arial;background:#f4f7f4;font-size:18px;}
 
 .topbar{
-position:sticky;top:0;
+position:sticky;
+top:0;
 background:#0f3d2e;
 color:white;
 display:flex;
@@ -331,4 +296,4 @@ color:white;
 }
 EOF
 
-echo "✅ DONE - FULL educational website generated (presentation ready)"
+echo "✅ DONE - Fixed navigation + stable GitHub Pages structure"
