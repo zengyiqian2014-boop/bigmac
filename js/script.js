@@ -1,1 +1,1 @@
-console.log("3-level version loaded");
+console.log("Premium green site loaded");

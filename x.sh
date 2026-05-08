@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🌿 RESTORING FIRST VERSION + 3-LEVEL NAVIGATION..."
+echo "🌿 Rebuilding GREEN PREMIUM WEBSITE (stable + no 404)..."
 
 # =========================
 # CLEAN
@@ -13,7 +13,7 @@ mkdir js
 mkdir civilisations
 
 # =========================
-# STYLE
+# CSS - 高级绿色版本
 # =========================
 cat > css/style.css << 'EOF'
 body{
@@ -23,6 +23,7 @@ body{
     color:#222;
 }
 
+/* 顶部导航 */
 header{
     background:#0f3d2e;
     padding:15px 30px;
@@ -43,9 +44,10 @@ nav a{
     font-size:18px;
 }
 
+/* 🌿 高级绿色 Hero（重点恢复） */
 .hero{
     background:
-    linear-gradient(rgba(15,61,46,0.65), rgba(46,125,50,0.65)),
+    linear-gradient(135deg, rgba(15,61,46,0.75), rgba(27,94,32,0.75)),
     url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
 
     background-size:cover;
@@ -53,12 +55,13 @@ nav a{
 
     color:white;
     text-align:center;
-    padding:140px 20px;
+    padding:150px 20px;
 }
 
 .hero h1{
-    font-size:60px;
+    font-size:64px;
     margin-bottom:20px;
+    letter-spacing:1px;
 }
 
 .hero h2{
@@ -66,37 +69,40 @@ nav a{
     font-weight:300;
 }
 
+/* 第二层绿色条 */
 .subbar{
     background:linear-gradient(90deg,#0f3d2e,#1b5e20);
     color:white;
     text-align:center;
-    padding:15px;
+    padding:16px;
     font-size:16px;
+    letter-spacing:0.5px;
 }
 
+/* 内容区 */
 .content{
     max-width:1100px;
     margin:40px auto;
     background:white;
     padding:35px;
     border-radius:20px;
-    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+    box-shadow:0 6px 25px rgba(0,0,0,0.1);
     line-height:1.8;
     font-size:18px;
 }
 
+/* 卡片 */
 .card-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:25px;
-    margin-top:30px;
 }
 
 .card{
     background:#fff;
     border-radius:15px;
     overflow:hidden;
-    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    box-shadow:0 5px 18px rgba(0,0,0,0.08);
 }
 
 .card img{
@@ -109,6 +115,7 @@ nav a{
     padding:20px;
 }
 
+/* footer */
 footer{
     background:#0f3d2e;
     color:white;
@@ -122,18 +129,18 @@ EOF
 # JS
 # =========================
 cat > js/script.js << 'EOF'
-console.log("3-level version loaded");
+console.log("Premium green site loaded");
 EOF
 
 # =========================
-# INDEX
+# INDEX (全部用绝对路径，彻底解决404)
 # =========================
 cat > index.html << 'EOF'
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sustainability from Ancient Civilisations</title>
+<title>Sustainability Project</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -141,76 +148,40 @@ cat > index.html << 'EOF'
 <header>
 <nav>
 <ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="civilisations/index.html">Civilisations</a></li>
-<li><a href="singapore.html">Singapore</a></li>
-<li><a href="solution.html">Solution</a></li>
-<li><a href="reflection.html">Reflection</a></li>
+<li><a href="/bigmac/index.html">Home</a></li>
+<li><a href="/bigmac/about.html">About</a></li>
+<li><a href="/bigmac/civilisations/index.html">Civilisations</a></li>
+<li><a href="/bigmac/singapore.html">Singapore</a></li>
+<li><a href="/bigmac/solution.html">Solution</a></li>
+<li><a href="/bigmac/reflection.html">Reflection</a></li>
 </ul>
 </nav>
 </header>
 
 <div class="hero">
-<h1>Sustainability from Ancient Civilisations</h1>
-<h2>Applying Ancient Ideas to Modern Singapore</h2>
+<h1>Ancient Civilisations</h1>
+<h2>Green Sustainability Inspiration</h2>
 </div>
 
 <div class="subbar">
-Exploring how ancient systems inspire modern sustainability
+Explore how ancient systems solve modern problems
 </div>
 
 <div class="content">
-<h2>Project Overview</h2>
-
-<p>
-This project explores how ancient civilisations developed sustainable systems
-to solve environmental problems and how these ideas can inspire Singapore today.
-</p>
-
-<div class="card-grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&w=1000&q=80">
-<div class="card-content">
-<h3><a href="civilisations/indus.html">Indus Valley</a></h3>
-<p>Advanced drainage and urban planning systems.</p>
-</div>
+<h2>Overview</h2>
+<p>This project shows how ancient civilisations inspire sustainable urban design today.</p>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1572252009286-268acec5ca0a?auto=format&fit=crop&w=1000&q=80">
-<div class="card-content">
-<h3><a href="civilisations/egypt.html">Ancient Egypt</a></h3>
-<p>Nile irrigation and agricultural sustainability.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1000&q=80">
-<div class="card-content">
-<h3><a href="civilisations/rome.html">Roman Aqueducts</a></h3>
-<p>Gravity-powered water transport systems.</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-<footer>
-© 2026 Made by Eric
-</footer>
+<footer>© 2026 Made by Eric</footer>
 
 </body>
 </html>
 EOF
 
 # =========================
-# ROOT PAGES
+# SIMPLE PAGE FUNCTION
 # =========================
-create_root_page () {
-
+page () {
 FILE=$1
 TITLE=$2
 TEXT=$3
@@ -221,15 +192,15 @@ cat > $FILE << EOF
 <head>
 <meta charset="UTF-8">
 <title>$TITLE</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/bigmac/css/style.css">
 </head>
 <body>
 
 <header>
 <nav>
 <ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="civilisations/index.html">Civilisations</a></li>
+<li><a href="/bigmac/index.html">Home</a></li>
+<li><a href="/bigmac/civilisations/index.html">Civilisations</a></li>
 </ul>
 </nav>
 </header>
@@ -239,29 +210,27 @@ cat > $FILE << EOF
 </div>
 
 <div class="subbar">
-$TITLE
+Green sustainability project
 </div>
 
 <div class="content">
 <p>$TEXT</p>
 </div>
 
-<footer>
-© 2026 Made by Eric
-</footer>
+<footer>© 2026 Made by Eric</footer>
 
 </body>
 </html>
 EOF
 }
 
-create_root_page "about.html" "About the Project" "This project studies sustainable systems from ancient civilisations."
-
-create_root_page "singapore.html" "Singapore's Challenges" "Singapore faces sustainability and urban challenges."
-
-create_root_page "solution.html" "Proposed Solution" "Ancient ideas can inspire future urban planning."
-
-create_root_page "reflection.html" "Reflection" "Ancient sustainable systems remain useful today."
+# =========================
+# ROOT PAGES
+# =========================
+page "about.html" "About" "This project studies sustainability in ancient civilisations."
+page "singapore.html" "Singapore Challenges" "Urban heat and water management issues."
+page "solution.html" "Solution" "Use ancient systems for modern city planning."
+page "reflection.html" "Reflection" "Ancient wisdom still matters today."
 
 # =========================
 # CIVILISATIONS INDEX
@@ -272,15 +241,15 @@ cat > civilisations/index.html << 'EOF'
 <head>
 <meta charset="UTF-8">
 <title>Civilisations</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="/bigmac/css/style.css">
 </head>
 <body>
 
 <header>
 <nav>
 <ul>
-<li><a href="../index.html">Home</a></li>
-<li><a href="index.html">Civilisations</a></li>
+<li><a href="/bigmac/index.html">Home</a></li>
+<li><a href="/bigmac/civilisations/index.html">Civilisations</a></li>
 </ul>
 </nav>
 </header>
@@ -290,84 +259,32 @@ cat > civilisations/index.html << 'EOF'
 </div>
 
 <div class="subbar">
-Choose a civilisation to explore
+Select a civilisation
 </div>
 
 <div class="content">
-
 <ul>
-<li><a href="indus.html">Indus Valley</a></li>
-<li><a href="egypt.html">Ancient Egypt</a></li>
-<li><a href="rome.html">Roman Aqueducts</a></li>
+<li><a href="/bigmac/civilisations/indus.html">Indus Valley</a></li>
+<li><a href="/bigmac/civilisations/egypt.html">Ancient Egypt</a></li>
+<li><a href="/bigmac/civilisations/rome.html">Roman Aqueducts</a></li>
 </ul>
-
 </div>
 
-<footer>
-© 2026 Made by Eric
-</footer>
+<footer>© 2026 Made by Eric</footer>
 
 </body>
 </html>
 EOF
 
 # =========================
-# DETAIL PAGE FUNCTION
+# DETAIL PAGES
 # =========================
-create_detail_page () {
+page "civilisations/indus.html" "Indus Valley" "Advanced drainage and city planning."
+page "civilisations/egypt.html" "Ancient Egypt" "Nile-based irrigation system."
+page "civilisations/rome.html" "Roman Aqueducts" "Gravity-based water transport."
 
-FILE=$1
-TITLE=$2
-TEXT=$3
-
-cat > civilisations/$FILE << EOF
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>$TITLE</title>
-<link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-
-<header>
-<nav>
-<ul>
-<li><a href="../index.html">Home</a></li>
-<li><a href="index.html">Back to Civilisations</a></li>
-</ul>
-</nav>
-</header>
-
-<div class="hero">
-<h1>$TITLE</h1>
-</div>
-
-<div class="subbar">
-Detailed civilisation study
-</div>
-
-<div class="content">
-<p>$TEXT</p>
-</div>
-
-<footer>
-© 2026 Made by Eric
-</footer>
-
-</body>
-</html>
-EOF
-}
-
-create_detail_page "indus.html" "Indus Valley" "The Indus Valley civilisation developed advanced drainage and city planning."
-
-create_detail_page "egypt.html" "Ancient Egypt" "Ancient Egypt used the Nile River irrigation system for sustainability."
-
-create_detail_page "rome.html" "Roman Aqueducts" "Romans transported water using gravity-powered aqueduct systems."
-
-echo "✅ FIRST VERSION + 3-LEVEL STRUCTURE RESTORED"
-echo "🚀 NOW RUN:"
-echo "git add ."
-echo "git commit -m 'restore 3-level first version'"
-echo "git push"
+echo "✅ DONE: GREEN PREMIUM VERSION + 404 FIXED"
+echo "🚀 RUN:"
+git add .
+git commit -m 'final green premium fix'
+git push
