@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🌿 Rebuilding GREEN PREMIUM WEBSITE (stable + no 404)..."
+echo "🌿 Rebuilding GREEN PREMIUM + SCHOOL CREST WEBSITE..."
 
 # =========================
 # CLEAN
@@ -13,7 +13,7 @@ mkdir js
 mkdir civilisations
 
 # =========================
-# CSS - 高级绿色版本
+# CSS（绿色高级 + 校徽风）
 # =========================
 cat > css/style.css << 'EOF'
 body{
@@ -23,15 +23,16 @@ body{
     color:#222;
 }
 
-/* 顶部导航 */
+/* 顶部栏 */
 header{
     background:#0f3d2e;
-    padding:15px 30px;
+    padding:12px 25px;
 }
 
+/* 导航 */
 nav ul{
     display:flex;
-    gap:20px;
+    gap:18px;
     list-style:none;
     margin:0;
     padding:0;
@@ -41,13 +42,14 @@ nav a{
     color:white;
     text-decoration:none;
     font-weight:bold;
-    font-size:18px;
+    font-size:17px;
 }
 
-/* 🌿 高级绿色 Hero（重点恢复） */
+/* 🌿 高级绿色 HERO */
 .hero{
+    position:relative;
     background:
-    linear-gradient(135deg, rgba(15,61,46,0.75), rgba(27,94,32,0.75)),
+    linear-gradient(135deg, rgba(15,61,46,0.78), rgba(27,94,32,0.78)),
     url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
 
     background-size:cover;
@@ -58,34 +60,48 @@ nav a{
     padding:150px 20px;
 }
 
+/* 校徽水印（重点） */
+.hero::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:220px;
+    height:220px;
+    background:url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Emblem_of_De_La_Salle_Brothers.svg/512px-Emblem_of_De_La_Salle_Brothers.svg.png");
+    background-size:contain;
+    background-repeat:no-repeat;
+    opacity:0.10;
+    pointer-events:none;
+}
+
 .hero h1{
     font-size:64px;
-    margin-bottom:20px;
-    letter-spacing:1px;
+    margin-bottom:15px;
 }
 
 .hero h2{
-    font-size:28px;
+    font-size:26px;
     font-weight:300;
 }
 
-/* 第二层绿色条 */
+/* 第二条绿色横幅 */
 .subbar{
     background:linear-gradient(90deg,#0f3d2e,#1b5e20);
     color:white;
     text-align:center;
-    padding:16px;
+    padding:14px;
     font-size:16px;
-    letter-spacing:0.5px;
 }
 
-/* 内容区 */
+/* 内容 */
 .content{
     max-width:1100px;
     margin:40px auto;
     background:white;
     padding:35px;
-    border-radius:20px;
+    border-radius:18px;
     box-shadow:0 6px 25px rgba(0,0,0,0.1);
     line-height:1.8;
     font-size:18px;
@@ -102,7 +118,7 @@ nav a{
     background:#fff;
     border-radius:15px;
     overflow:hidden;
-    box-shadow:0 5px 18px rgba(0,0,0,0.08);
+    box-shadow:0 4px 18px rgba(0,0,0,0.08);
 }
 
 .card img{
@@ -112,7 +128,7 @@ nav a{
 }
 
 .card-content{
-    padding:20px;
+    padding:18px;
 }
 
 /* footer */
@@ -120,7 +136,7 @@ footer{
     background:#0f3d2e;
     color:white;
     text-align:center;
-    padding:20px;
+    padding:18px;
     margin-top:50px;
 }
 EOF
@@ -129,18 +145,18 @@ EOF
 # JS
 # =========================
 cat > js/script.js << 'EOF'
-console.log("Premium green site loaded");
+console.log("St Stephen Green Crest Site Loaded");
 EOF
 
 # =========================
-# INDEX (全部用绝对路径，彻底解决404)
+# INDEX
 # =========================
 cat > index.html << 'EOF'
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sustainability Project</title>
+<title>St Stephen Sustainability Project</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -149,27 +165,27 @@ cat > index.html << 'EOF'
 <nav>
 <ul>
 <li><a href="/bigmac/index.html">Home</a></li>
-<li><a href="/bigmac/about.html">About</a></li>
 <li><a href="/bigmac/civilisations/index.html">Civilisations</a></li>
-<li><a href="/bigmac/singapore.html">Singapore</a></li>
-<li><a href="/bigmac/solution.html">Solution</a></li>
-<li><a href="/bigmac/reflection.html">Reflection</a></li>
+<li><a href="/bigmac/about.html">About</a></li>
 </ul>
 </nav>
 </header>
 
 <div class="hero">
-<h1>Ancient Civilisations</h1>
-<h2>Green Sustainability Inspiration</h2>
+<h1>St Stephen Inspired Project</h1>
+<h2>Green Sustainability • Faith • Learning</h2>
 </div>
 
 <div class="subbar">
-Explore how ancient systems solve modern problems
+Credere et Servire • Learn from Ancient Civilisations
 </div>
 
 <div class="content">
 <h2>Overview</h2>
-<p>This project shows how ancient civilisations inspire sustainable urban design today.</p>
+<p>
+This website explores how ancient civilisations inspire modern sustainability,
+presented in a St. Stephen’s School inspired green academic style.
+</p>
 </div>
 
 <footer>© 2026 Made by Eric</footer>
@@ -210,7 +226,7 @@ cat > $FILE << EOF
 </div>
 
 <div class="subbar">
-Green sustainability project
+St Stephen Inspired Green Design
 </div>
 
 <div class="content">
@@ -225,15 +241,15 @@ EOF
 }
 
 # =========================
-# ROOT PAGES
+# PAGES
 # =========================
-page "about.html" "About" "This project studies sustainability in ancient civilisations."
-page "singapore.html" "Singapore Challenges" "Urban heat and water management issues."
-page "solution.html" "Solution" "Use ancient systems for modern city planning."
-page "reflection.html" "Reflection" "Ancient wisdom still matters today."
+page "about.html" "About" "St Stephen inspired sustainability project."
+page "singapore.html" "Singapore Challenges" "Urban sustainability challenges in Singapore."
+page "solution.html" "Solution" "Ancient systems applied to modern cities."
+page "reflection.html" "Reflection" "Learning from history to build the future."
 
 # =========================
-# CIVILISATIONS INDEX
+# CIVILISATIONS
 # =========================
 cat > civilisations/index.html << 'EOF'
 <!DOCTYPE html>
@@ -259,7 +275,7 @@ cat > civilisations/index.html << 'EOF'
 </div>
 
 <div class="subbar">
-Select a civilisation
+Choose a civilisation
 </div>
 
 <div class="content">
@@ -279,12 +295,12 @@ EOF
 # =========================
 # DETAIL PAGES
 # =========================
-page "civilisations/indus.html" "Indus Valley" "Advanced drainage and city planning."
-page "civilisations/egypt.html" "Ancient Egypt" "Nile-based irrigation system."
-page "civilisations/rome.html" "Roman Aqueducts" "Gravity-based water transport."
+page "civilisations/indus.html" "Indus Valley" "Advanced drainage and urban planning system."
+page "civilisations/egypt.html" "Ancient Egypt" "Nile-based irrigation sustainability system."
+page "civilisations/rome.html" "Roman Aqueducts" "Gravity water engineering system."
 
-echo "✅ DONE: GREEN PREMIUM VERSION + 404 FIXED"
-echo "🚀 RUN:"
+echo "✅ DONE: GREEN + ST STEPHEN CREST + 1+2 SYSTEM"
+echo "🚀 PUSH:"
 git add .
-git commit -m 'final green premium fix'
+git commit -m 'st stephen green crest final'
 git push

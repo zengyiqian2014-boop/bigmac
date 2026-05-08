@@ -5,15 +5,16 @@ body{
     color:#222;
 }
 
-/* 顶部导航 */
+/* 顶部栏 */
 header{
     background:#0f3d2e;
-    padding:15px 30px;
+    padding:12px 25px;
 }
 
+/* 导航 */
 nav ul{
     display:flex;
-    gap:20px;
+    gap:18px;
     list-style:none;
     margin:0;
     padding:0;
@@ -23,13 +24,14 @@ nav a{
     color:white;
     text-decoration:none;
     font-weight:bold;
-    font-size:18px;
+    font-size:17px;
 }
 
-/* 🌿 高级绿色 Hero（重点恢复） */
+/* 🌿 高级绿色 HERO */
 .hero{
+    position:relative;
     background:
-    linear-gradient(135deg, rgba(15,61,46,0.75), rgba(27,94,32,0.75)),
+    linear-gradient(135deg, rgba(15,61,46,0.78), rgba(27,94,32,0.78)),
     url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
 
     background-size:cover;
@@ -40,34 +42,48 @@ nav a{
     padding:150px 20px;
 }
 
+/* 校徽水印（重点） */
+.hero::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:220px;
+    height:220px;
+    background:url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Emblem_of_De_La_Salle_Brothers.svg/512px-Emblem_of_De_La_Salle_Brothers.svg.png");
+    background-size:contain;
+    background-repeat:no-repeat;
+    opacity:0.10;
+    pointer-events:none;
+}
+
 .hero h1{
     font-size:64px;
-    margin-bottom:20px;
-    letter-spacing:1px;
+    margin-bottom:15px;
 }
 
 .hero h2{
-    font-size:28px;
+    font-size:26px;
     font-weight:300;
 }
 
-/* 第二层绿色条 */
+/* 第二条绿色横幅 */
 .subbar{
     background:linear-gradient(90deg,#0f3d2e,#1b5e20);
     color:white;
     text-align:center;
-    padding:16px;
+    padding:14px;
     font-size:16px;
-    letter-spacing:0.5px;
 }
 
-/* 内容区 */
+/* 内容 */
 .content{
     max-width:1100px;
     margin:40px auto;
     background:white;
     padding:35px;
-    border-radius:20px;
+    border-radius:18px;
     box-shadow:0 6px 25px rgba(0,0,0,0.1);
     line-height:1.8;
     font-size:18px;
@@ -84,7 +100,7 @@ nav a{
     background:#fff;
     border-radius:15px;
     overflow:hidden;
-    box-shadow:0 5px 18px rgba(0,0,0,0.08);
+    box-shadow:0 4px 18px rgba(0,0,0,0.08);
 }
 
 .card img{
@@ -94,7 +110,7 @@ nav a{
 }
 
 .card-content{
-    padding:20px;
+    padding:18px;
 }
 
 /* footer */
@@ -102,6 +118,6 @@ footer{
     background:#0f3d2e;
     color:white;
     text-align:center;
-    padding:20px;
+    padding:18px;
     margin-top:50px;
 }
