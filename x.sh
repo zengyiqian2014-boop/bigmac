@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🌿 Rebuilding GREEN PREMIUM + SCHOOL CREST WEBSITE..."
+echo "🌿 Building FINAL GREEN + ST STEPHEN CREST WEBSITE..."
 
 # =========================
 # CLEAN
@@ -13,7 +13,7 @@ mkdir js
 mkdir civilisations
 
 # =========================
-# CSS（绿色高级 + 校徽风）
+# CSS (绿色高级 + 校徽感)
 # =========================
 cat > css/style.css << 'EOF'
 body{
@@ -23,13 +23,13 @@ body{
     color:#222;
 }
 
-/* 顶部栏 */
+/* 顶部导航 */
 header{
     background:#0f3d2e;
     padding:12px 25px;
 }
 
-/* 导航 */
+/* nav */
 nav ul{
     display:flex;
     gap:18px;
@@ -45,11 +45,11 @@ nav a{
     font-size:17px;
 }
 
-/* 🌿 高级绿色 HERO */
+/* 🌿 HERO（高级绿色） */
 .hero{
     position:relative;
     background:
-    linear-gradient(135deg, rgba(15,61,46,0.78), rgba(27,94,32,0.78)),
+    linear-gradient(135deg, rgba(15,61,46,0.8), rgba(27,94,32,0.8)),
     url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
 
     background-size:cover;
@@ -60,7 +60,7 @@ nav a{
     padding:150px 20px;
 }
 
-/* 校徽水印（重点） */
+/* 校徽风水印（参考 St Stephen crest 风格结构） */
 .hero::after{
     content:"";
     position:absolute;
@@ -86,16 +86,15 @@ nav a{
     font-weight:300;
 }
 
-/* 第二条绿色横幅 */
+/* 第二条绿色横条 */
 .subbar{
     background:linear-gradient(90deg,#0f3d2e,#1b5e20);
     color:white;
     text-align:center;
     padding:14px;
-    font-size:16px;
 }
 
-/* 内容 */
+/* 内容区 */
 .content{
     max-width:1100px;
     margin:40px auto;
@@ -145,7 +144,7 @@ EOF
 # JS
 # =========================
 cat > js/script.js << 'EOF'
-console.log("St Stephen Green Crest Site Loaded");
+console.log("Final St Stephen Green Crest Loaded");
 EOF
 
 # =========================
@@ -177,15 +176,30 @@ cat > index.html << 'EOF'
 </div>
 
 <div class="subbar">
-Credere et Servire • Learn from Ancient Civilisations
+Credere et Servire • Learning from Ancient Systems
 </div>
 
 <div class="content">
-<h2>Overview</h2>
+
+<h2>Project Overview</h2>
 <p>
-This website explores how ancient civilisations inspire modern sustainability,
-presented in a St. Stephen’s School inspired green academic style.
+This project is inspired by St. Stephen’s School values, combining sustainability, history, and modern urban thinking.
 </p>
+
+<h2>School Crest Inspiration</h2>
+<p>
+The design reflects the ideas behind the St. Stephen’s School crest: faith, growth, and service.
+Green represents growth and sustainability, while structure represents discipline and learning.
+</p>
+
+<h2>Learning Goals</h2>
+<ul>
+<li>Understand ancient civilisations</li>
+<li>Compare sustainable systems</li>
+<li>Apply ideas to modern Singapore</li>
+<li>Develop reflection and analysis skills</li>
+</ul>
+
 </div>
 
 <footer>© 2026 Made by Eric</footer>
@@ -195,7 +209,7 @@ presented in a St. Stephen’s School inspired green academic style.
 EOF
 
 # =========================
-# SIMPLE PAGE FUNCTION
+# PAGE FUNCTION
 # =========================
 page () {
 FILE=$1
@@ -226,7 +240,7 @@ cat > $FILE << EOF
 </div>
 
 <div class="subbar">
-St Stephen Inspired Green Design
+St Stephen Green Academic Theme
 </div>
 
 <div class="content">
@@ -243,13 +257,13 @@ EOF
 # =========================
 # PAGES
 # =========================
-page "about.html" "About" "St Stephen inspired sustainability project."
-page "singapore.html" "Singapore Challenges" "Urban sustainability challenges in Singapore."
+page "about.html" "About" "St Stephen inspired sustainability learning project."
+page "singapore.html" "Singapore Challenges" "Urban sustainability and water management issues."
 page "solution.html" "Solution" "Ancient systems applied to modern cities."
-page "reflection.html" "Reflection" "Learning from history to build the future."
+page "reflection.html" "Reflection" "Learning from history to improve the future."
 
 # =========================
-# CIVILISATIONS
+# CIVILISATIONS INDEX
 # =========================
 cat > civilisations/index.html << 'EOF'
 <!DOCTYPE html>
@@ -275,7 +289,7 @@ cat > civilisations/index.html << 'EOF'
 </div>
 
 <div class="subbar">
-Choose a civilisation
+Select a civilisation
 </div>
 
 <div class="content">
@@ -296,11 +310,10 @@ EOF
 # DETAIL PAGES
 # =========================
 page "civilisations/indus.html" "Indus Valley" "Advanced drainage and urban planning system."
-page "civilisations/egypt.html" "Ancient Egypt" "Nile-based irrigation sustainability system."
-page "civilisations/rome.html" "Roman Aqueducts" "Gravity water engineering system."
+page "civilisations/egypt.html" "Ancient Egypt" "Nile-based irrigation system supporting agriculture."
+page "civilisations/rome.html" "Roman Aqueducts" "Gravity-based water engineering system."
 
-echo "✅ DONE: GREEN + ST STEPHEN CREST + 1+2 SYSTEM"
-echo "🚀 PUSH:"
-git add .
-git commit -m 'st stephen green crest final'
-git push
+echo "✅ FINAL BUILD COMPLETE"
+echo "🚀 git add ."
+echo "🚀 git commit -m 'final st stephen green crest version'"
+echo "🚀 git push"

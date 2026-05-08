@@ -5,13 +5,13 @@ body{
     color:#222;
 }
 
-/* 顶部栏 */
+/* 顶部导航 */
 header{
     background:#0f3d2e;
     padding:12px 25px;
 }
 
-/* 导航 */
+/* nav */
 nav ul{
     display:flex;
     gap:18px;
@@ -27,11 +27,11 @@ nav a{
     font-size:17px;
 }
 
-/* 🌿 高级绿色 HERO */
+/* 🌿 HERO（高级绿色） */
 .hero{
     position:relative;
     background:
-    linear-gradient(135deg, rgba(15,61,46,0.78), rgba(27,94,32,0.78)),
+    linear-gradient(135deg, rgba(15,61,46,0.8), rgba(27,94,32,0.8)),
     url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
 
     background-size:cover;
@@ -42,7 +42,7 @@ nav a{
     padding:150px 20px;
 }
 
-/* 校徽水印（重点） */
+/* 校徽风水印（参考 St Stephen crest 风格结构） */
 .hero::after{
     content:"";
     position:absolute;
@@ -68,16 +68,15 @@ nav a{
     font-weight:300;
 }
 
-/* 第二条绿色横幅 */
+/* 第二条绿色横条 */
 .subbar{
     background:linear-gradient(90deg,#0f3d2e,#1b5e20);
     color:white;
     text-align:center;
     padding:14px;
-    font-size:16px;
 }
 
-/* 内容 */
+/* 内容区 */
 .content{
     max-width:1100px;
     margin:40px auto;
