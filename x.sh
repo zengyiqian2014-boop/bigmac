@@ -1,161 +1,107 @@
 #!/bin/bash
 
-echo "🌿 Building FINAL GREEN + ST STEPHEN CREST WEBSITE..."
+echo "🌿 Building: Learning From The Past - Sustainability Exhibition"
 
 # =========================
 # CLEAN
 # =========================
-rm -rf css js civilisations
+rm -rf css js pages civilisations
 rm -f *.html
 
 mkdir css
 mkdir js
+mkdir pages
 mkdir civilisations
 
 # =========================
-# CSS (绿色高级 + 校徽感)
+# STYLE (绿色展览风)
 # =========================
 cat > css/style.css << 'EOF'
 body{
     margin:0;
-    font-family:Arial,sans-serif;
+    font-family:Arial;
     background:#f4f7f4;
     color:#222;
 }
 
-/* 顶部导航 */
 header{
     background:#0f3d2e;
-    padding:12px 25px;
+    padding:12px 20px;
 }
 
-/* nav */
 nav ul{
+    list-style:none;
     display:flex;
     gap:18px;
-    list-style:none;
-    margin:0;
     padding:0;
+    margin:0;
 }
 
 nav a{
     color:white;
     text-decoration:none;
     font-weight:bold;
-    font-size:17px;
 }
 
-/* 🌿 HERO（高级绿色） */
 .hero{
-    position:relative;
-    background:
-    linear-gradient(135deg, rgba(15,61,46,0.8), rgba(27,94,32,0.8)),
-    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
-
-    background-size:cover;
-    background-position:center;
-
+    background:linear-gradient(135deg,#0f3d2e,#1b5e20);
     color:white;
     text-align:center;
-    padding:150px 20px;
-}
-
-/* 校徽风水印（参考 St Stephen crest 风格结构） */
-.hero::after{
-    content:"";
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:220px;
-    height:220px;
-    background:url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Emblem_of_De_La_Salle_Brothers.svg/512px-Emblem_of_De_La_Salle_Brothers.svg.png");
-    background-size:contain;
-    background-repeat:no-repeat;
-    opacity:0.10;
-    pointer-events:none;
+    padding:90px 20px;
 }
 
 .hero h1{
-    font-size:64px;
-    margin-bottom:15px;
+    font-size:42px;
 }
 
-.hero h2{
-    font-size:26px;
-    font-weight:300;
-}
-
-/* 第二条绿色横条 */
-.subbar{
-    background:linear-gradient(90deg,#0f3d2e,#1b5e20);
+.banner{
+    background:#1b5e20;
     color:white;
     text-align:center;
-    padding:14px;
+    padding:12px;
 }
 
-/* 内容区 */
 .content{
-    max-width:1100px;
-    margin:40px auto;
+    max-width:1000px;
+    margin:30px auto;
     background:white;
-    padding:35px;
-    border-radius:18px;
-    box-shadow:0 6px 25px rgba(0,0,0,0.1);
-    line-height:1.8;
-    font-size:18px;
-}
-
-/* 卡片 */
-.card-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .card{
-    background:#fff;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 4px 18px rgba(0,0,0,0.08);
+    margin:15px 0;
+    padding:15px;
+    border-left:5px solid #0f3d2e;
+    background:#f9fdf9;
 }
 
-.card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-}
-
-.card-content{
-    padding:18px;
-}
-
-/* footer */
 footer{
     background:#0f3d2e;
     color:white;
     text-align:center;
-    padding:18px;
-    margin-top:50px;
+    padding:15px;
+    margin-top:40px;
 }
 EOF
 
 # =========================
 # JS
 # =========================
-cat > js/script.js << 'EOF'
-console.log("Final St Stephen Green Crest Loaded");
+cat > js/main.js << 'EOF'
+console.log("Sustainability Exhibition Loaded");
 EOF
 
 # =========================
-# INDEX
+# INDEX PAGE (核心展示)
 # =========================
 cat > index.html << 'EOF'
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>St Stephen Sustainability Project</title>
+<title>Sustainability Exhibition</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -163,107 +109,60 @@ cat > index.html << 'EOF'
 <header>
 <nav>
 <ul>
-<li><a href="/bigmac/index.html">Home</a></li>
-<li><a href="/bigmac/civilisations/index.html">Civilisations</a></li>
-<li><a href="/bigmac/about.html">About</a></li>
+<li><a href="index.html">Home</a></li>
+<li><a href="civilisations/index.html">Civilisations</a></li>
+<li><a href="pages/solution.html">Solutions</a></li>
+<li><a href="pages/reflection.html">Reflection</a></li>
 </ul>
 </nav>
 </header>
 
 <div class="hero">
-<h1>St Stephen Inspired Project</h1>
-<h2>Green Sustainability • Faith • Learning</h2>
+<h1>Learning From The Past</h1>
+<p>Sustainability of Ancient Civilisations → Singapore Solutions</p>
 </div>
 
-<div class="subbar">
-Credere et Servire • Learning from Ancient Systems
+<div class="banner">
+Exhibition: Sustainability Ideas for Singapore
 </div>
 
 <div class="content">
 
-<h2>Project Overview</h2>
-<p>
-This project is inspired by St. Stephen’s School values, combining sustainability, history, and modern urban thinking.
-</p>
+<div class="card">
+<h2>Which civilisation inspired your idea?</h2>
+<p>Indus Valley, Ancient Egypt, and Ancient Greece inspired our sustainability solutions.</p>
+</div>
 
-<h2>School Crest Inspiration</h2>
-<p>
-The design reflects the ideas behind the St. Stephen’s School crest: faith, growth, and service.
-Green represents growth and sustainability, while structure represents discipline and learning.
-</p>
+<div class="card">
+<h2>What problem does Singapore face?</h2>
+<p>Limited land, high energy use, water scarcity, and high cooling demand.</p>
+</div>
 
-<h2>Learning Goals</h2>
-<ul>
-<li>Understand ancient civilisations</li>
-<li>Compare sustainable systems</li>
-<li>Apply ideas to modern Singapore</li>
-<li>Develop reflection and analysis skills</li>
-</ul>
+<div class="card">
+<h2>Our Key Idea</h2>
+<p>Nature-based smart housing using passive cooling, water recycling, and energy-efficient systems.</p>
+</div>
+
+<div class="card">
+<h2>How is it sustainable?</h2>
+<p>Reduces energy consumption, reuses water, and integrates natural systems into urban design.</p>
+</div>
+
+<div class="card">
+<h2>Implementation</h2>
+<p>Apply in future HDB design, improve ventilation systems, and expand water recycling networks.</p>
+</div>
 
 </div>
 
-<footer>© 2026 Made by Eric</footer>
+<footer>Learning From The Past - Sustainability Exhibition</footer>
 
 </body>
 </html>
 EOF
 
 # =========================
-# PAGE FUNCTION
-# =========================
-page () {
-FILE=$1
-TITLE=$2
-TEXT=$3
-
-cat > $FILE << EOF
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>$TITLE</title>
-<link rel="stylesheet" href="/bigmac/css/style.css">
-</head>
-<body>
-
-<header>
-<nav>
-<ul>
-<li><a href="/bigmac/index.html">Home</a></li>
-<li><a href="/bigmac/civilisations/index.html">Civilisations</a></li>
-</ul>
-</nav>
-</header>
-
-<div class="hero">
-<h1>$TITLE</h1>
-</div>
-
-<div class="subbar">
-St Stephen Green Academic Theme
-</div>
-
-<div class="content">
-<p>$TEXT</p>
-</div>
-
-<footer>© 2026 Made by Eric</footer>
-
-</body>
-</html>
-EOF
-}
-
-# =========================
-# PAGES
-# =========================
-page "about.html" "About" "St Stephen inspired sustainability learning project."
-page "singapore.html" "Singapore Challenges" "Urban sustainability and water management issues."
-page "solution.html" "Solution" "Ancient systems applied to modern cities."
-page "reflection.html" "Reflection" "Learning from history to improve the future."
-
-# =========================
-# CIVILISATIONS INDEX
+# CIVILISATIONS PAGE
 # =========================
 cat > civilisations/index.html << 'EOF'
 <!DOCTYPE html>
@@ -271,15 +170,14 @@ cat > civilisations/index.html << 'EOF'
 <head>
 <meta charset="UTF-8">
 <title>Civilisations</title>
-<link rel="stylesheet" href="/bigmac/css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
 <header>
 <nav>
 <ul>
-<li><a href="/bigmac/index.html">Home</a></li>
-<li><a href="/bigmac/civilisations/index.html">Civilisations</a></li>
+<li><a href="../index.html">Home</a></li>
 </ul>
 </nav>
 </header>
@@ -288,32 +186,106 @@ cat > civilisations/index.html << 'EOF'
 <h1>Ancient Civilisations</h1>
 </div>
 
-<div class="subbar">
-Select a civilisation
-</div>
-
 <div class="content">
-<ul>
-<li><a href="/bigmac/civilisations/indus.html">Indus Valley</a></li>
-<li><a href="/bigmac/civilisations/egypt.html">Ancient Egypt</a></li>
-<li><a href="/bigmac/civilisations/rome.html">Roman Aqueducts</a></li>
-</ul>
+
+<div class="card">
+<h2>Indus Valley Civilisation</h2>
+<p>Urban planning + natural ventilation systems.</p>
 </div>
 
-<footer>© 2026 Made by Eric</footer>
+<div class="card">
+<h2>Ancient Egypt</h2>
+<p>Basin irrigation system using Nile flood cycles.</p>
+</div>
+
+<div class="card">
+<h2>Ancient Greece</h2>
+<p>Early hydro power for mechanical tasks.</p>
+</div>
+
+</div>
+
+<footer>Exhibition Project</footer>
 
 </body>
 </html>
 EOF
 
 # =========================
-# DETAIL PAGES
+# SOLUTION PAGE
 # =========================
-page "civilisations/indus.html" "Indus Valley" "Advanced drainage and urban planning system."
-page "civilisations/egypt.html" "Ancient Egypt" "Nile-based irrigation system supporting agriculture."
-page "civilisations/rome.html" "Roman Aqueducts" "Gravity-based water engineering system."
+cat > pages/solution.html << 'EOF'
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Solution</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
 
-echo "✅ FINAL BUILD COMPLETE"
-echo "🚀 git add ."
-echo "🚀 git commit -m 'final st stephen green crest version'"
-echo "🚀 git push"
+<header>
+<nav>
+<ul>
+<li><a href="../index.html">Home</a></li>
+</ul>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Our Sustainability Solution</h1>
+</div>
+
+<div class="content">
+<p>
+We propose a Nature-Based Smart Housing System inspired by ancient civilisations.
+It integrates passive cooling, water recycling, and natural energy systems.
+</p>
+</div>
+
+<footer>Solution Page</footer>
+
+</body>
+</html>
+EOF
+
+# =========================
+# REFLECTION PAGE
+# =========================
+cat > pages/reflection.html << 'EOF'
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Reflection</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+<nav>
+<ul>
+<li><a href="../index.html">Home</a></li>
+</ul>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Reflection</h1>
+</div>
+
+<div class="content">
+<p>
+We learned that ancient civilisations used natural systems efficiently.
+These ideas can still solve modern sustainability challenges in Singapore.
+</p>
+</div>
+
+<footer>Reflection Page</footer>
+
+</body>
+</html>
+EOF
+
+echo "✅ DONE: Exhibition Website Ready"
+echo "🚀 RUN: git add . && git commit -m 'exhibition site' && git push"
